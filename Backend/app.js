@@ -61,10 +61,10 @@ app.put("/update", (req, res) => {
  );
 });
 
-app.delete('/remove',(req,res)=>{
+app.delete('/remove/:id',(req,res)=>{
  res.header("Access-Control-Allow-Origin", "*");
  res.header("Access-Control-Allow-Method:GET,POST,PUT,DELETE");
- Data.findOneAndDelete(req.body.email)
+ Data.findOneAndDelete(req.params.id)
  .then(()=>{
        console.log('success')
        res.send();

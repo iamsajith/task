@@ -1,0 +1,47 @@
+
+<div class="card mx-5">
+ <div class="card-body">
+   <div class="table-responsive">
+     <div data-aos="fade-right">
+     <table class="table">
+       <thead class="thead-light">
+         <tr class="align-middle">
+           <th></th>
+           <th>NAME</th>
+           <th>CONTACT</th>
+           <th>BATCH</th>
+           <th>APPLIED ON</th>
+           <th>VALID UPTO</th>
+         </tr>
+       </thead>
+      
+       <tbody>
+         <tr class="align-middle" *ngFor="let i of Data">
+           <td>
+             <img [src]="i.image" alt="image" />
+           </td>
+           <td>{{ i.name }}</td>
+           <td>{{ i.phone }}<br />{{ i.email }}</td>
+           <td>{{ i.batch }}</td>
+           <td>{{ i.Date }}</td>
+           <td>{{ i.endDate }}</td>
+          <td>
+            <button class="btn btn-outline-warning" (click)="update(i._id)">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+          </td>
+          <td>
+           <button class="btn btn-outline-warning" (click)="delete(i._id)">
+             <i class="fa-solid fa-pen-to-square"></i>
+           </button>
+         </td>
+         </tr>
+
+       </tbody>
+     
+     </table>
+   </div>
+   </div>
+ </div>
+</div>
+
