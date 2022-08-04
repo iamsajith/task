@@ -65,10 +65,10 @@ app.put("/user/:id", (req, res) => {
 app.delete('/user/:id', (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Method:GET,POST,PUT,DELETE");
-  Data.findOneAndDelete(req.params.id)
-    .then(() => {
-      console.log('success')
-      res.send();
+  Data.findByIdAndDelete(req.params.id)
+    .then((data) => {
+      console.log(data)
+      res.send(data);
     })
 })
 
