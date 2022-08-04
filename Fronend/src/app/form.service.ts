@@ -14,14 +14,18 @@ export class FormService {
   }
 
   add(data:any){
-    return this.http.post("http://localhost:5000/fetch",data)
+    return this.http.post("http://localhost:5000/new",data)
   }
 
   update(data:any){
-    return this.http.put("http://localhost:5000/fetch",data)
+    return this.http.put("http://localhost:5000/update",data)
   }
   delete(id:any){
-    return this.http.delete(`http://localhost:5000/fetch/`+id)
+    return this.http.delete(`http://localhost:5000/remove/`+id)
+  }
+  updatefetch(id:any){
+    return this.http.get(`http://localhost:5000/data/`+id)
+
   }
 
 }

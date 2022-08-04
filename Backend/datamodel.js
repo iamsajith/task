@@ -10,7 +10,7 @@ const schema = mongoose.Schema
 const Schema = new schema({
  name: String,
  email: String,
- phone: Number,
+ phone: String,
  location: String,
 
 
