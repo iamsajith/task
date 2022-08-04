@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json({ urlencoded: true }));
 
 // Create
-app.post("/new", (req, res) => {
+app.post("/user", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Method:GET,POST,PUT,DELETE");
   var userInfo = {
@@ -25,7 +25,7 @@ app.post("/new", (req, res) => {
 
 // Fetch Data
 
-app.get("/fetch", (req, res) => {
+app.get("/users", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Method:GET,POST,PUT,DELETE");
   Data.find().then((data) => {
@@ -35,13 +35,13 @@ app.get("/fetch", (req, res) => {
 });
 
 // Update Data
-app.put("/update", (req, res) => {
+
+app.put("/user/:id", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Method:GET,POST,PUT,DELETE");
-  id = "62eb6e96932d1c280b91cdb0"
-  console.log(req.body)
+  console.log(req.params.id)
   Data.findByIdAndUpdate(
-    req.body._id,
+    req.params.id,
     {
       $set: {
         name: req.body.name,
@@ -60,7 +60,9 @@ app.put("/update", (req, res) => {
   );
 });
 
-app.delete('/remove/:id', (req, res) => {
+// Delete
+
+app.delete('/user/:id', (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Method:GET,POST,PUT,DELETE");
   Data.findOneAndDelete(req.params.id)
