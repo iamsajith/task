@@ -18,6 +18,7 @@ export class FormService {
   }
 
   update(data:any){
+    console.log(data)
     return this.http.put("http://localhost:5000/update",data)
   }
   delete(id:any){

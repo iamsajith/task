@@ -22,7 +22,7 @@ export class UpdateComponent implements OnInit {
     })
   }
   Update(){
-    this.form.add(this.data).subscribe((data)=>{
+    this.form.update(this.data).subscribe((data)=>{
       console.log("Success")
       this.router.navigate(["/"])
 

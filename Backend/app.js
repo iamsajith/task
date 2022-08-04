@@ -39,9 +39,9 @@ app.put("/update", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Method:GET,POST,PUT,DELETE");
   id = "62eb6e96932d1c280b91cdb0"
-  console.log(req.body._id)
+  console.log(req.body)
   Data.findByIdAndUpdate(
-    id,
+    req.body._id,
     {
       $set: {
         name: req.body.name,
@@ -50,7 +50,6 @@ app.put("/update", (req, res) => {
         location: req.body.location,
       },
     },
-    { new: true },
     (err, Data) => {
       if (err) {
         res.send("Error While Updating");
